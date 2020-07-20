@@ -71,7 +71,7 @@ let questions = [
   },
   {
     question: "What was Tom's full name?",
-    imgSrc: "Stuffs/img/Tom.png",
+    imgSrc: "Stuffs/img/tom.png",
     choiceA: "Thomas Cat",
     choiceB: "Cat Tom",
     choiceC: "Tommy",
@@ -335,7 +335,7 @@ function scoreRender() {
 //////////////////////////////////////////////////////
 var myVar;
 
-function myFunction() {
+function myLoader() {
   myVar = setTimeout(showPage, 20000);
 }
 
