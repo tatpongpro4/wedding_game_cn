@@ -71,7 +71,7 @@ let questions = [
   },
   {
     question: "What was Tom's full name?",
-    imgSrc: "Stuffs/img/tom.png",
+    imgSrc: "Stuffs/img/cat.png",
     choiceA: "Thomas Cat",
     choiceB: "Cat Tom",
     choiceC: "Tommy",
