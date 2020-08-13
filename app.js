@@ -12,7 +12,7 @@ const choiceD = document.getElementById("D");
 const counter = document.getElementById("counter");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
-+99
++99-
 // create questions
 let questions = [
   {
