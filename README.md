@@ -12,6 +12,7 @@ Coding your own JavaScript quiz is also a fantastic learning exercise. It teache
       alt="_time_stamp_" />
   </div>
  
+ 
 ![alt](https://github.com/AhsanParadise/Friendly_Quiz_Game/blob/master/ScreenShot.png?raw=true)
 
 
