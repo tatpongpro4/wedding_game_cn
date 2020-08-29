@@ -3,9 +3,9 @@ Coding your own JavaScript quiz is also a fantastic learning exercise. It teache
  <div align="center">  
   <!-- Version -->
     <img src="https://img.shields.io/badge/Version-2.0-blue.svg?longCache=true&style=flat-square"
-      alt="3.0" />
+      alt="2.0" />
     <!-- Last Updated -->
-    <img src="https://img.shields.io/badge/Updated-July 3, 2020-orange.svg?longCache=true&style=flat-square"
+    <img src="https://img.shields.io/badge/Updated-July 20, 2020-orange.svg?longCache=true&style=flat-square"
       alt="_time_stamp_" />
   <!-- Status -->
     <img src="https://img.shields.io/badge/Status-Active-green.svg?longCache=true&style=flat-square"
