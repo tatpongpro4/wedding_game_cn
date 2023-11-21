@@ -19,7 +19,7 @@ const yourtime = document.getElementById("yourtime");
 let questions = [
   {
     question: "ไอลีนจะมางานแต่งไหม",
-    imgSrc: "Stuffs/img/dogs.gif",
+    imgSrc: "Stuffs/img/dog.gif",
     choiceA: "ไม่มา",
     choiceB: "มา",
     choiceC: "ไม่รู้จะเมา",
