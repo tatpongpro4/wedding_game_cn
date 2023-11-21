@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: "Concert One", Kanit;
 }
-#highscore{
+#highscore {
   color: white;
 }
 #loader {
@@ -14,7 +14,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #ffffff, #ffc0cb); 
+  background: linear-gradient(to bottom, #ffffff, #ffc0cb);
   z-index: 200;
   color: orangered;
   text-align: center;
@@ -108,7 +108,7 @@ body {
 }
 
 #choices {
-  width: 580px;
+  width: 800px;
   position: absolute;
   right: 0;
   top: 100px;
@@ -312,8 +312,8 @@ footer {
     width: 200px;
   }
   #choices {
-    width: 180px;
-    left: 100px;
+    width: 300px;
+    left: 40px;
     gap: 5px;
     bottom: 200px;
   }
@@ -326,11 +326,14 @@ footer {
     height: 30px;
     position: absolute;
     top: 10px;
+    z-index: 2;
   }
   #question p {
     margin: 0;
     padding: 15px;
-    font-size: 20px;
+    font-size: 30px;
+    color: white;
+    z-index: 2;
   }
   #scoreContainer {
     background-color: white;
@@ -351,7 +354,11 @@ footer {
   footer {
     font-size: 15px;
   }
+
   #qImg {
-    display: none;
+    width: 180px;
+    top: 10px;
+    left: 200px;
+    position: absolute;
   }
 }
