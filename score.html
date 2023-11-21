@@ -1,0 +1,52 @@
+<!-- score.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Quiz Game Online" />
+    <meta name="description" content="A Friendly Game for developers." />
+    <meta name="author" content="AhsanParadise" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Stuffs/img/icon.png" rel="icon" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit" />
+
+    <title>Beck & Kwang Wedding</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* เพิ่ม CSS สำหรับตารางคะแนน */
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body style="margin: 0; display: block;">
+    <div>
+        <h1>ตารางคะแนน</h1>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>อันดับ</th>
+                <th>ชื่อผู้เล่น</th>
+                <th>คะแนน</th>
+                <th>เวลา</th>
+            </tr>
+        </thead>
+        <tbody id="scoreTable">
+            <!-- ข้อมูลคะแนนจะถูกเพิ่มที่นี่โดย JavaScript -->
+        </tbody>
+    </table>
+    <script src="app.js"></script>
+    <script src="score.js"></script>
+</body>
+</html>

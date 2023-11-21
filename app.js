@@ -12,6 +12,8 @@ const choiceD = document.getElementById("D");
 const counter = document.getElementById("counter");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
+const scoreDiv2 = document.getElementById("scoreContainer_2");
+const yourtime = document.getElementById("yourtime");
 
 // create questions
 let questions = [
@@ -51,7 +53,6 @@ let questions = [
     choiceD: "โคราช",
     correct: "C",
   },
-
 ];
 
 // Extra variables
@@ -162,11 +163,15 @@ function answerIsWrong() {
 
 // score render
 function scoreRender() {
+  clearInterval(totalSeconds);
   scoreDiv.style.display = "block";
+
   var music = new Audio();
   music.src = "Stuffs/music/GameOver.mp3";
   music.play();
-
+  localStorage.setItem("totalSeconds", totalSeconds);
+  scoreDiv2.innerHTML = score;
+  yourtime.innerHTML = minutesLabel + ":" + secondsLabel + "นาที";
   // calculate the amount of question percent answered by the user
   const scorePerCent = Math.round((100 * score) / questions.length);
 
@@ -184,15 +189,56 @@ function scoreRender() {
 
   scoreDiv.innerHTML = "<img src=" + img + ">";
   scoreDiv.innerHTML += "<p>" + scorePerCent + "%</p>";
+
+  document.getElementById("highscore").style.display = "block";
+  GoName();
+
+  // เมื่อผู้เล่นเล่นเกมแล้วสำเร็จ ให้เรียกใช้ฟังก์ชัน gameCompleted
+  gameCompleted();
 }
 
 //////////////////////////////////////////////////////
 var myVar;
 
 function myLoader() {
-  myVar = setTimeout(showPage, 3000);
+  myVar = setTimeout(showPage, 2000);
+  myVar = setTimeout(GoName, 2000);
 }
 
 function showPage() {
   document.getElementById("loader").style.display = "none";
 }
+function GoName() {
+  document.getElementById("container").style.display = "none";
+}
+
+function saveNameToLocalStorage() {
+  const name = document.getElementById("nameInput").value;
+  if (name) {
+    document.getElementById("name").style.display = "none";
+    document.getElementById("container").style.display = "block";
+    localStorage.setItem("name", name);
+    setInterval(setTime, 1000);
+  } else {
+    alert("กรุณาระบุชื่อ");
+  }
+}
+
+var totalSeconds = 0;
+var minutesLabel = 0;
+var secondsLabel = null;
+function setTime() {
+  ++totalSeconds;
+  secondsLabel = pad(totalSeconds % 60);
+  minutesLabel = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+

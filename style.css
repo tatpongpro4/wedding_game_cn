@@ -3,7 +3,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Concert One", cursive;
+  font-family: "Concert One", Kanit;
+}
+#highscore{
+  color: white;
 }
 #loader {
   position: absolute;
