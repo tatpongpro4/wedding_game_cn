@@ -11,7 +11,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: black;
+  background: linear-gradient(to bottom, #ffffff, #ffc0cb); 
   z-index: 200;
   color: orangered;
   text-align: center;
@@ -128,12 +128,12 @@ body {
   transition: all 0.4s ease 0s;
   font-size: 25px;
 }
-.choice:hover {
+/* .choice:hover {
   color: #ffffff !important;
   background: #f6b93b;
   border-color: #f6b93b !important;
   transition: all 0.4s ease 0s;
-}
+} */
 
 #timer {
   position: absolute;
