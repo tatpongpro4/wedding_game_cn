@@ -203,14 +203,18 @@ var myVar;
 function myLoader() {
   myVar = setTimeout(showPage, 5000);
   myVar = setTimeout(GoName, 5000);
+
 }
 
 function showPage() {
   document.getElementById("loader").style.display = "none";
 }
+
 function GoName() {
   document.getElementById("container").style.display = "none";
+  document.getElementById("name").style.display = "block";
 }
+
 
 function saveNameToLocalStorage() {
   const name = document.getElementById("nameInput").value;

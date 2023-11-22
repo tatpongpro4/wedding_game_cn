@@ -54,7 +54,8 @@ body {
     0 100px 80px rgba(0, 0, 0, 0.404);
   position: relative;
   background-color: #d6bf73;
-  background-image: url(Stuffs/img/pic.png);
+  /* background-image: url(Stuffs/img/pic.png); */
+  background-image: url(Stuffs/img/boyong.jpeg);
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 30% 40%;
@@ -360,5 +361,23 @@ footer {
     top: 10px;
     left: 200px;
     position: absolute;
+  }
+
+  #name_img{
+    width: 300px;
+    left: -40px;
+    position: absolute;
+    margin-top: 30px;
+  }
+  #name{
+    top: 20px;
+    position: absolute;
+  }
+
+  #img_loader{
+    position: absolute;
+    width: 300px;
+    left: 50px;
+    top: 400px;
   }
 }

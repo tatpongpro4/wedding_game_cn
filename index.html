@@ -39,14 +39,21 @@
         <br />
         ระบบจะแสดงรายชื่อของผู้เล่น 10 อันดับแรกเท่านั้น
         ถ้าคุณไม่มีชื่อในตารางคะแนน แปลว่าคุณไม่มีชื่อติดอับดับงับ
+        <img src="Stuffs\img\haha.jpg" alt="" id="img_loader">
       </p>
     </div>
-    <div id="name">
+    <div id="name" style="display: none">
       <input type="text" id="nameInput" placeholder="Enter your name" />
 
       <button id="submit_name" onclick="saveNameToLocalStorage()">
         Start Game
       </button>
+    <!--   <img src="Stuffs\img\kwanggy_1.jpg" id="name_img" alt=""> -->
+    <br>
+      <video id="name_img" autoplay muted>
+        <source src="Stuffs\vdo\kwanggy_vdo_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div id="highscore" style="display: none">
       <h1>คะแนนของคุณ: <span id="scoreContainer_2"></span></h1>
