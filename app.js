@@ -201,8 +201,8 @@ function scoreRender() {
 var myVar;
 
 function myLoader() {
-  myVar = setTimeout(showPage, 2000);
-  myVar = setTimeout(GoName, 2000);
+  myVar = setTimeout(showPage);
+  myVar = setTimeout(GoName);
 }
 
 function showPage() {
