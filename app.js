@@ -14,16 +14,110 @@ const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 const scoreDiv2 = document.getElementById("scoreContainer_2");
 const yourtime = document.getElementById("yourtime");
-
+const game = document.getElementById("game");
 // create questions
+/* let questions = [
+  {
+    question: "บ่าว-สาวเป็นเพื่อนในFackbookตั้งแต่ปีอะไร",
+    imgSrc: "Stuffs/img/dog.gif",
+    choiceA: "2010",
+    choiceB: "2011",
+    choiceC: "2015",
+    choiceD: "2018",
+    correct: "B",
+  },
+  {
+    question: "น้องชายกวางชื่ออะไร",
+    imgSrc: "Stuffs/img/frog.gif",
+    choiceA: "เป๋าตุง",
+    choiceB: "นูนู่",
+    choiceC: "ปิกาจู",
+    choiceD: "ถ้วยฟู",
+    correct: "A",
+  },
+  {
+    question: "เจอกันครั้งแรกที่ไหน",
+    imgSrc: "Stuffs/img/meeting.gif",
+    choiceA: "โรงเรียน",
+    choiceB: "มหาลัย",
+    choiceC: "The moon bar",
+    choiceD: "popo bar",
+    correct: "D",
+  },
+  {
+    question: "วันที่ขอแต่งงานบ่าวสาวใส่ชุดสีอะไร",
+    imgSrc: "Stuffs/img/proposal.gif",
+    choiceA: "ดำ",
+    choiceB: "แดง",
+    choiceC: "ขาว",
+    choiceD: "ชมพู",
+    correct: "A",
+  },
+  {
+    question: "กวางกับเบ็คมีลูกชื่ออะไร",
+    imgSrc: "Stuffs/img/baby.gif",
+    choiceA: "มูมู่+มีมี่",
+    choiceB: "ส้ม+ขาว",
+    choiceC: "กะป๋อง+กะแป๋ง",
+    choiceD: "ถ้วยฟู+ปลาทู",
+    correct: "C",
+  },
+  {
+    question: "เจ้าสาวไม่ให้แขกใส่สีอะไรมางาน!",
+    imgSrc: "Stuffs/img/wedding.gif",
+    choiceA: "สีขาว",
+    choiceB: "สีเขียว",
+    choiceC: "สีน้ำตาล",
+    choiceD: "สีชมพู",
+    correct: "A",
+  },
+  {
+    question: "กวางเบ็คคบกันกี่ปี",
+    imgSrc: "Stuffs/img/anniversary.gif",
+    choiceA: "3ปี",
+    choiceB: "5ปี",
+    choiceC: "8ปี",
+    choiceD: "15ปี",
+    correct: "B",
+  },
+  {
+    question: "เจ้าบ่าวทักเฟสบุ๊กไปหาเจ้าสาวเพราะอะไร",
+    imgSrc: "Stuffs/img/facebook_chat.gif",
+    choiceA: "หาคนหารค่าที่พัก",
+    choiceB: "อยากจีบ",
+    choiceC: "ยืมเงิน",
+    choiceD: "ทักผิดคน",
+    correct: "A",
+  },
+  {
+    question: "กวางเบ็คชอบสัตว์อะไร",
+    imgSrc: "Stuffs/img/animals.gif",
+    choiceA: "หมา",
+    choiceB: "แมว",
+    choiceC: "หนู",
+    choiceD: "ปลา",
+    correct: "B",
+  },
+  {
+    question: "ในวีดีโอพรีเซนต์ใครเป็นคนพากย์เสียง",
+    imgSrc: "Stuffs/img/video_presentation.gif",
+    choiceA: "เจ้าบ่าว",
+    choiceB: "เจ้าสาว",
+    choiceC: "เพื่อน",
+    choiceD: "จ้างนักพากย์",
+    correct: "A",
+  }
+] */
+
+
 let questions = [
   {
-    question: "ไอลีนจะมางานแต่งไหม",
+    question: "question",
     imgSrc: "Stuffs/img/dog.gif",
-    choiceA: "ไม่มา",
-    choiceB: "มา",
-    choiceC: "ไม่รู้จะเมา",
-    choiceD: "เรื่องของแม่ง",
+    choiceA: "choiceA",
+    choiceB: "choiceB",
+    choiceC: "choiceC",
+    choiceD: "choiceD",
     correct: "A",
   },
   {
@@ -71,22 +165,35 @@ function renderQuestion() {
 
   question.innerHTML = "<p>" + q.question + "</p>";
   qImg.innerHTML = "<img src=" + q.imgSrc + ">";
-  choiceA.innerHTML = q.choiceA;
-  choiceB.innerHTML = q.choiceB;
-  choiceC.innerHTML = q.choiceC;
-  choiceD.innerHTML = q.choiceD;
+  choiceA.innerHTML = "<div style='display: flex; align-items: center; justify-content: '>" +
+  "<img class='icon_test' src='Stuffs/img/hatori.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceA + "</span>" +
+  "</div>";
+  choiceB.innerHTML = "<div style='display: flex; align-items: center; justify-content:'>" +
+  "<img class='icon_test' src='Stuffs/img/pic.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceB + "</span>" +
+  "</div>";
+  choiceC.innerHTML = "<div style='display: flex; align-items: center; justify-content: '>" +
+  "<img class='icon_test' src='Stuffs/img/oggy.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceC + "</span>" +
+  "</div>";
+  choiceD.innerHTML = "<div style='display: flex; align-items: center; justify-content: '>" +
+  "<img class='icon_test' src='Stuffs/img/cat.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceD + "</span>" +
+  "</div>";
 }
 
-start.addEventListener("click", startQuiz);
+
 
 // start quiz
 function startQuiz() {
-  var music = new Audio();
+ /*  var music = new Audio();
   music.src = "Stuffs/music/Easy song.mp3";
-  music.play();
+  music.play(); */
   start.style.display = "none";
   renderQuestion();
-  quiz.style.display = "block";
+ 
+  game.style.display = "block";
   renderProgress();
   renderCounter();
   TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
@@ -109,7 +216,7 @@ function renderCounter() {
   } else {
     count = 0;
     // change progress color to red
-    answerIsWrong();
+    /* answerIsWrong();
     if (runningQuestion < lastQuestion) {
       runningQuestion++;
       renderQuestion();
@@ -117,7 +224,7 @@ function renderCounter() {
       // end the quiz and show the score
       clearInterval(TIMER);
       scoreRender();
-    }
+    } */
   }
 }
 
@@ -149,7 +256,7 @@ function checkAnswer(answer) {
 function answerIsCorrect() {
   document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
   var music = new Audio();
-  music.src = "Stuffs/music/yeah.mp3";
+  //music.src = "Stuffs/music/yeah.mp3";
   music.play();
 }
 
@@ -157,7 +264,7 @@ function answerIsCorrect() {
 function answerIsWrong() {
   document.getElementById(runningQuestion).style.backgroundColor = "#f00";
   var music = new Audio();
-  music.src = "Stuffs/music/Huh.mp3";
+  //music.src = "Stuffs/music/Huh.mp3";
   music.play();
 }
 
@@ -193,24 +300,23 @@ function scoreRender() {
   document.getElementById("highscore").style.display = "block";
   GoName();
 
-  // เมื่อผู้เล่นเล่นเกมแล้วสำเร็จ ให้เรียกใช้ฟังก์ชัน gameCompleted
-  gameCompleted();
 }
 
-//////////////////////////////////////////////////////
+
 var myVar;
 
 function myLoader() {
   myVar = setTimeout(showPage);
   myVar = setTimeout(GoName);
+
 }
 
 function showPage() {
+
   document.getElementById("loader").style.display = "none";
 }
 
 function GoName() {
-  document.getElementById("container").style.display = "none";
   document.getElementById("name").style.display = "block";
 }
 
@@ -219,8 +325,9 @@ function saveNameToLocalStorage() {
   const name = document.getElementById("nameInput").value;
   if (name) {
     document.getElementById("name").style.display = "none";
-    document.getElementById("container").style.display = "block";
+
     localStorage.setItem("name", name);
+    startQuiz()
     setInterval(setTime, 1000);
   } else {
     alert("กรุณาระบุชื่อ");
@@ -244,4 +351,8 @@ function pad(val) {
     return valString;
   }
 }
+
+
+
+
 
