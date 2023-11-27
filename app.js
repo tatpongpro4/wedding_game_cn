@@ -27,7 +27,7 @@ let questions = [
     correct: "A",
   },
   {
-    question: "อยากได้กี่ดอกในคืนนี้ (ดอกไม้)",
+    question: "อยากได้กี่ครั้งในคืนนี้ (ดอกไม้)",
     imgSrc: "Stuffs/img/flowers.gif",
     choiceA: "10",
     choiceB: "90",
@@ -201,9 +201,8 @@ function scoreRender() {
 var myVar;
 
 function myLoader() {
-  myVar = setTimeout(showPage, 5000);
-  myVar = setTimeout(GoName, 5000);
-
+  myVar = setTimeout(showPage, 2000);
+  myVar = setTimeout(GoName, 2000);
 }
 
 function showPage() {
