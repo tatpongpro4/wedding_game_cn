@@ -20,21 +20,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       return b.score - a.score;
     });
-    console.log(playersData)
+  
     updateScoreTable(playersData);
     findmyRank(localStorage.getItem("name") , playersData)
   });
 });
 
 function findmyRank(name , playersData){
-    var myRank  = playersData.findIndex(player => player.name === name) + 1; 
-    
+    var myRank  = playersData.findIndex(item => item.name === name) + 1; 
+    var myScore  = playersData.find(item => item.name === name); 
+
+    var rankDiv = document.getElementById("myRank");
     var scoreDiv = document.getElementById("myscore");
-    var scoreDiv = document.getElementById("myscore");
+    var nameDiv = document.getElementById("myName");
     if (myRank > 0) {
-      scoreDiv.innerHTML = "อันดับของคุณคือ: " + myRank;
+        nameDiv.innerHTML = "ชื่อของคุณคือ: " + myScore.name;
+      rankDiv.innerHTML = "อันดับของคุณอยู่ที่: " + myRank;
+      scoreDiv.innerHTML = "คุณทำคะแนนได้: " + myScore.score + " คะแนน"
     } else {
-      scoreDiv.innerHTML = "ชื่อของคุณไม่พบในอันดับ";
+      rankDiv.innerHTML = "ชื่อของคุณไม่พบในอันดับ";
     }
 }
 

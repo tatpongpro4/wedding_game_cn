@@ -304,7 +304,7 @@ function scoreRender() {
   setTimeout(function () {
     document.getElementById("highscore").style.display = "block";
     window.location.href = "score.html";
-  }, 5000);
+  }, 1000);
 }
 
 var myVar;
