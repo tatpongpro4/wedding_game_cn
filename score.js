@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var database = firebase.database();
   var ref = database.ref("test");
 
-  ref.once("value", (snapshot) => {
+  ref.on("value", (snapshot) => {
+    playersData = []; // Clear the previous data
     snapshot.forEach((childSnapshot) => {
       var player = childSnapshot.val();
       playersData.push({

@@ -304,7 +304,7 @@ function scoreRender() {
   setTimeout(function () {
     document.getElementById("highscore").style.display = "block";
     window.location.href = "score.html";
-  }, 1000);
+  }, 2000);
 }
 
 var myVar;
@@ -331,14 +331,16 @@ function saveNameToLocalStorage() {
   const name = document.getElementById("nameInput").value;
 
   if (name) {
-    let have_name = checkIfUserPlayed(name, false, "มีผู้ใช้ชื่อนี้ไปแล้ว");
- 
-    if (!have_name) {
-      document.getElementById("name").style.display = "none";
-      localStorage.setItem("name", name);
-      startQuiz();
-      setInterval(setTime, 1000);
-    }
+
+    checkIfUserPlayed(name, false, "มีผู้ใช้ชื่อนี้ไปแล้ว")
+      .then((have_name) => {
+        if (!have_name) {
+          document.getElementById("name").style.display = "none";
+          localStorage.setItem("name", name);
+          startQuiz();
+          setInterval(setTime, 1000);
+        }
+      });
   } else {
     alert("กรุณาระบุชื่อ");
   }
@@ -372,20 +374,25 @@ function saveData(data) {
 function checkIfUserPlayed(name, redirect, msg) {
   var database = firebase.database();
   var ref = database.ref("test");
-  ref
-    .orderByChild("name")
-    .equalTo(name)
-    .once("value", (snapshot) => {
-      if (snapshot.exists()) {
-        alert(msg);
-        if (redirect) {
-          document.getElementById("highscore").style.display = "block";
-          window.location.href = "score.html";
+
+  return new Promise((resolve, reject) => {
+    ref
+      .orderByChild("name")
+      .equalTo(name)
+      .once("value", (snapshot) => {
+        if (snapshot.exists()) {
+          alert(msg);
+          if (redirect) {
+            document.getElementById("highscore").style.display = "block";
+            window.location.href = "score.html";
+          }
+          resolve(true); 
         } else {
-          return false;
+  
+          resolve(false); 
         }
-      }
-    });
+      });
+  });
 }
 
 function sendDataToFirebase() {
@@ -395,7 +402,7 @@ function sendDataToFirebase() {
       name: name,
       score: score,
       time: minutesLabel + ":" + secondsLabel,
-      created: new Date()
+      created: new Date(),
     };
 
     saveData(data);
