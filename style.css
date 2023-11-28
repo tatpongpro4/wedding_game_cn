@@ -6,7 +6,7 @@
   font-family: "Concert One", Kanit;
 }
 #highscore {
-  color: white;
+  color: black;
 }
 #loader {
   position: absolute;
@@ -35,7 +35,6 @@ body {
   display: flex;
   flex-direction: column; /* ปรับให้เนื้อหาจัดเรียงตามแนวตั้ง */
   background: linear-gradient(#f4f1e8 30%, #ffc0cb 100%);
-
   margin: 0;
   padding: 0;
   justify-content: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อให้เนื้อหาเริ่มจากด้านบน */
@@ -123,20 +122,22 @@ body {
 }
 #counter {
   font-size: 3em;
+  position: relative;
+  left: 0px;
 }
 
 #progress {
   width: 500px;
   position: absolute;
   bottom: 0px;
-  right: 0px;
+  right: 40px;
   padding: 5px;
   text-align: right;
 }
 .prog {
   width: 10px;
   height: 10px;
-  border: 1px solid #000;
+  
   display: inline-block;
   border-radius: 50%;
   margin-left: 5px;
@@ -188,7 +189,6 @@ footer {
 /* logo 3 */
 background: linear-gradient(#f4f1e8 40%, #ffc0cb 100%)
 }
-
 #name_img {
 
   position: relative;
@@ -219,6 +219,11 @@ background: linear-gradient(#f4f1e8 40%, #ffc0cb 100%)
   position: relative;
   padding: 0;
   margin: 0;
+}
+
+.rank{
+  color: black;
+
 }
 @keyframes fadeIn {
   from { opacity: 0; }

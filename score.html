@@ -2,51 +2,80 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="keywords" content="Quiz Game Online" />
     <meta name="description" content="A Friendly Game for developers." />
     <meta name="author" content="AhsanParadise" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Stuffs/img/icon.png" rel="icon" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Kanit"
+    />
 
     <title>Beck & Kwang Wedding</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* เพิ่ม CSS สำหรับตารางคะแนน */
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 20px auto;
-        }
+      /* เพิ่ม CSS สำหรับตารางคะแนน */
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 20px auto;
+      }
 
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
     </style>
-</head>
-<body style="margin: 0; display: block;">
+  </head>
+  <body style="margin: 0; display: block">
     <div>
-        <h1>ตารางคะแนน</h1>
+      <h1 class="rank">ตารางคะแนน</h1>
     </div>
 
     <table>
-        <thead>
-            <tr>
-                <th>อันดับ</th>
-                <th>ชื่อผู้เล่น</th>
-                <th>คะแนน</th>
-                <th>เวลา</th>
-            </tr>
-        </thead>
-        <tbody id="scoreTable">
-            <!-- ข้อมูลคะแนนจะถูกเพิ่มที่นี่โดย JavaScript -->
-        </tbody>
+      <thead>
+        <tr>
+          <th>อันดับ</th>
+          <th>ชื่อผู้เล่น</th>
+          <th>คะแนน</th>
+          <th>เวลา</th>
+        </tr>
+      </thead>
+      <tbody id="scoreTable">
+        <!-- ข้อมูลคะแนนจะถูกเพิ่มที่นี่โดย JavaScript -->
+      </tbody>
     </table>
+
+
+    <div>
+      <h1 class="rank"  id=myscore></h1>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+    <script type="module">
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCB7FcpA7R7wxcAHdWTzK9SQV9W8QkMTTw",
+        authDomain: "wedding-cn-f9db4.firebaseapp.com",
+        databaseURL:
+          "https://wedding-cn-f9db4-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "wedding-cn-f9db4",
+        storageBucket: "wedding-cn-f9db4.appspot.com",
+        messagingSenderId: "29911108915",
+        appId: "1:29911108915:web:7d967e9173572f7688c246",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+ 
+    </script>
     <script src="app.js"></script>
     <script src="score.js"></script>
-</body>
+
+  </body>
 </html>

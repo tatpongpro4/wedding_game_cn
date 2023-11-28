@@ -15,6 +15,7 @@ const scoreDiv = document.getElementById("scoreContainer");
 const scoreDiv2 = document.getElementById("scoreContainer_2");
 const yourtime = document.getElementById("yourtime");
 const game = document.getElementById("game");
+const name_block = document.getElementById("name");
 // create questions
 /* let questions = [
   {
@@ -109,7 +110,6 @@ const game = document.getElementById("game");
   }
 ] */
 
-
 let questions = [
   {
     question: "question",
@@ -165,38 +165,45 @@ function renderQuestion() {
 
   question.innerHTML = "<p>" + q.question + "</p>";
   qImg.innerHTML = "<img src=" + q.imgSrc + ">";
-  choiceA.innerHTML = "<div style='display: flex; align-items: center; justify-content: '>" +
-  "<img class='icon_test' src='Stuffs/img/hatori.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
-  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceA + "</span>" +
-  "</div>";
-  choiceB.innerHTML = "<div style='display: flex; align-items: center; justify-content:'>" +
-  "<img class='icon_test' src='Stuffs/img/pic.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
-  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceB + "</span>" +
-  "</div>";
-  choiceC.innerHTML = "<div style='display: flex; align-items: center; justify-content: '>" +
-  "<img class='icon_test' src='Stuffs/img/oggy.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
-  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceC + "</span>" +
-  "</div>";
-  choiceD.innerHTML = "<div style='display: flex; align-items: center; justify-content: '>" +
-  "<img class='icon_test' src='Stuffs/img/cat.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
-  "<span style='text-align: center; flex-grow: 1;'>" + q.choiceD + "</span>" +
-  "</div>";
+  choiceA.innerHTML =
+    "<div style='display: flex; align-items: center; justify-content: '>" +
+    "<img class='icon_test' src='Stuffs/img/hatori.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+    "<span style='text-align: center; flex-grow: 1;'>" +
+    q.choiceA +
+    "</span>" +
+    "</div>";
+  choiceB.innerHTML =
+    "<div style='display: flex; align-items: center; justify-content:'>" +
+    "<img class='icon_test' src='Stuffs/img/pic.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+    "<span style='text-align: center; flex-grow: 1;'>" +
+    q.choiceB +
+    "</span>" +
+    "</div>";
+  choiceC.innerHTML =
+    "<div style='display: flex; align-items: center; justify-content: '>" +
+    "<img class='icon_test' src='Stuffs/img/oggy.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+    "<span style='text-align: center; flex-grow: 1;'>" +
+    q.choiceC +
+    "</span>" +
+    "</div>";
+  choiceD.innerHTML =
+    "<div style='display: flex; align-items: center; justify-content: '>" +
+    "<img class='icon_test' src='Stuffs/img/cat.png' style='margin-right: 10px; width: 60px; height: 60px;'>" +
+    "<span style='text-align: center; flex-grow: 1;'>" +
+    q.choiceD +
+    "</span>" +
+    "</div>";
 }
-
-
 
 // start quiz
 function startQuiz() {
- /*  var music = new Audio();
-  music.src = "Stuffs/music/Easy song.mp3";
-  music.play(); */
   start.style.display = "none";
   renderQuestion();
- 
+
   game.style.display = "block";
   renderProgress();
   renderCounter();
-  TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
+  TIMER = setInterval(renderCounter, 1000);
 }
 
 // render progress
@@ -211,12 +218,11 @@ function renderProgress() {
 function renderCounter() {
   if (count <= questionTime) {
     counter.innerHTML = count;
-
     count++;
   } else {
     count = 0;
     // change progress color to red
-    /* answerIsWrong();
+    answerIsWrong();
     if (runningQuestion < lastQuestion) {
       runningQuestion++;
       renderQuestion();
@@ -224,7 +230,7 @@ function renderCounter() {
       // end the quiz and show the score
       clearInterval(TIMER);
       scoreRender();
-    } */
+    }
   }
 }
 
@@ -241,12 +247,13 @@ function checkAnswer(answer) {
     // change progress color to red
     answerIsWrong();
   }
-  count = -10;
+
   if (runningQuestion < lastQuestion) {
     runningQuestion++;
     renderQuestion();
   } else {
     // end the quiz and show the score
+
     clearInterval(TIMER);
     scoreRender();
   }
@@ -254,35 +261,32 @@ function checkAnswer(answer) {
 
 // answer is correct
 function answerIsCorrect() {
-  document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
-  var music = new Audio();
-  //music.src = "Stuffs/music/yeah.mp3";
-  music.play();
+  var element = document.getElementById(runningQuestion);
+  element.innerHTML = "";
+  element.innerHTML =
+    "<img style='max-width: 30px; max-height: 30px; margin-left: 5px; margin-right: 5px; ' src='Stuffs/img/oggy.png'>";
 }
 
 // answer is Wrong
 function answerIsWrong() {
-  document.getElementById(runningQuestion).style.backgroundColor = "#f00";
-  var music = new Audio();
-  //music.src = "Stuffs/music/Huh.mp3";
-  music.play();
+  var element = document.getElementById(runningQuestion);
+  element.innerHTML = "";
+  element.innerHTML =
+    "<img style='max-width: 30px; max-height: 30px; margin-left: 5px; margin-right: 5px; ' src='Stuffs/img/pic.png'>";
 }
 
 // score render
 function scoreRender() {
-  clearInterval(totalSeconds);
+  game.style.display = "none";
+  name_block.style.display = "none";
+  highscore.style.display = "block";
   scoreDiv.style.display = "block";
 
-  var music = new Audio();
-  music.src = "Stuffs/music/GameOver.mp3";
-  music.play();
-  localStorage.setItem("totalSeconds", totalSeconds);
   scoreDiv2.innerHTML = score;
   yourtime.innerHTML = minutesLabel + ":" + secondsLabel + "นาที";
-  // calculate the amount of question percent answered by the user
+  clearInterval(totalSeconds);
   const scorePerCent = Math.round((100 * score) / questions.length);
 
-  // choose the image based on the scorePerCent
   let img =
     scorePerCent >= 80
       ? "Stuffs/img/5.png"
@@ -296,39 +300,45 @@ function scoreRender() {
 
   scoreDiv.innerHTML = "<img src=" + img + ">";
   scoreDiv.innerHTML += "<p>" + scorePerCent + "%</p>";
-
-  document.getElementById("highscore").style.display = "block";
-  GoName();
-
+  sendDataToFirebase();
+  setTimeout(function () {
+    document.getElementById("highscore").style.display = "block";
+    window.location.href = "score.html";
+  }, 5000);
 }
-
 
 var myVar;
 
 function myLoader() {
+  checkIfUserPlayed(
+    localStorage.getItem("name"),
+    true,
+    "คุณได้ทำการเล่นไปแล้ว"
+  );
   myVar = setTimeout(showPage);
   myVar = setTimeout(GoName);
-
 }
 
 function showPage() {
-
   document.getElementById("loader").style.display = "none";
 }
 
 function GoName() {
-  document.getElementById("name").style.display = "block";
+  name_block.style.display = "block";
 }
-
 
 function saveNameToLocalStorage() {
   const name = document.getElementById("nameInput").value;
-  if (name) {
-    document.getElementById("name").style.display = "none";
 
-    localStorage.setItem("name", name);
-    startQuiz()
-    setInterval(setTime, 1000);
+  if (name) {
+    let have_name = checkIfUserPlayed(name, false, "มีผู้ใช้ชื่อนี้ไปแล้ว");
+ 
+    if (!have_name) {
+      document.getElementById("name").style.display = "none";
+      localStorage.setItem("name", name);
+      startQuiz();
+      setInterval(setTime, 1000);
+    }
   } else {
     alert("กรุณาระบุชื่อ");
   }
@@ -352,7 +362,44 @@ function pad(val) {
   }
 }
 
+function saveData(data) {
+  var database = firebase.database();
+  var ref = database.ref("test");
 
+  ref.push(data);
+}
 
+function checkIfUserPlayed(name, redirect, msg) {
+  var database = firebase.database();
+  var ref = database.ref("test");
+  ref
+    .orderByChild("name")
+    .equalTo(name)
+    .once("value", (snapshot) => {
+      if (snapshot.exists()) {
+        alert(msg);
+        if (redirect) {
+          document.getElementById("highscore").style.display = "block";
+          window.location.href = "score.html";
+        } else {
+          return false;
+        }
+      }
+    });
+}
 
+function sendDataToFirebase() {
+  const name = localStorage.getItem("name");
+  if (name && typeof score !== "undefined" && minutesLabel && secondsLabel) {
+    const data = {
+      name: name,
+      score: score,
+      time: minutesLabel + ":" + secondsLabel,
+      created: new Date()
+    };
 
+    saveData(data);
+  } else {
+    console.error("Error: One or more required data items are missing.");
+  }
+}
