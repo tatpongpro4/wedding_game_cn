@@ -17,7 +17,7 @@ const yourtime = document.getElementById("yourtime");
 const game = document.getElementById("game");
 const name_block = document.getElementById("name");
 // create questions
-/* let questions = [
+let questions = [
   {
     question: "บ่าว-สาวเป็นเพื่อนในFackbookตั้งแต่ปีอะไร",
     imgSrc: "Stuffs/img/dog.gif",
@@ -108,9 +108,9 @@ const name_block = document.getElementById("name");
     choiceD: "จ้างนักพากย์",
     correct: "A",
   }
-] */
+]
 
-let questions = [
+/* let questions = [
   {
     question: "question",
     imgSrc: "Stuffs/img/dog.gif",
@@ -147,7 +147,7 @@ let questions = [
     choiceD: "โคราช",
     correct: "C",
   },
-];
+]; */
 
 // Extra variables
 
