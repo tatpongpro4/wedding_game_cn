@@ -38,7 +38,7 @@ let questions = [
   },
   {
     question: "เจอกันครั้งแรกที่ไหน",
-    imgSrc: "Stuffs/img/meeting.gif",
+    imgSrc: "Stuffs/img/doo.gif",
     choiceA: "โรงเรียน",
     choiceB: "มหาลัย",
     choiceC: "The moon bar",
@@ -47,7 +47,7 @@ let questions = [
   },
   {
     question: "วันที่ขอแต่งงานบ่าวสาวใส่ชุดสีอะไร",
-    imgSrc: "Stuffs/img/proposal.gif",
+    imgSrc: "Stuffs/img/bravo.png",
     choiceA: "ดำ",
     choiceB: "แดง",
     choiceC: "ขาว",
@@ -56,7 +56,7 @@ let questions = [
   },
   {
     question: "กวางกับเบ็คมีลูกชื่ออะไร",
-    imgSrc: "Stuffs/img/baby.gif",
+    imgSrc: "Stuffs/img/doraemon.gif",
     choiceA: "มูมู่+มีมี่",
     choiceB: "ส้ม+ขาว",
     choiceC: "กะป๋อง+กะแป๋ง",
@@ -65,7 +65,7 @@ let questions = [
   },
   {
     question: "เจ้าสาวไม่ให้แขกใส่สีอะไรมางาน!",
-    imgSrc: "Stuffs/img/wedding.gif",
+    imgSrc: "Stuffs/img/dog.gif",
     choiceA: "สีขาว",
     choiceB: "สีเขียว",
     choiceC: "สีน้ำตาล",
@@ -74,7 +74,7 @@ let questions = [
   },
   {
     question: "กวางเบ็คคบกันกี่ปี",
-    imgSrc: "Stuffs/img/anniversary.gif",
+    imgSrc: "Stuffs/img/zero.gif",
     choiceA: "3ปี",
     choiceB: "5ปี",
     choiceC: "8ปี",
@@ -83,7 +83,7 @@ let questions = [
   },
   {
     question: "เจ้าบ่าวทักเฟสบุ๊กไปหาเจ้าสาวเพราะอะไร",
-    imgSrc: "Stuffs/img/facebook_chat.gif",
+    imgSrc: "Stuffs/img/trick.gif",
     choiceA: "หาคนหารค่าที่พัก",
     choiceB: "อยากจีบ",
     choiceC: "ยืมเงิน",
@@ -92,7 +92,7 @@ let questions = [
   },
   {
     question: "กวางเบ็คชอบสัตว์อะไร",
-    imgSrc: "Stuffs/img/animals.gif",
+    imgSrc: "Stuffs/img/frog.gif",
     choiceA: "หมา",
     choiceB: "แมว",
     choiceC: "หนู",
@@ -101,7 +101,7 @@ let questions = [
   },
   {
     question: "ในวีดีโอพรีเซนต์ใครเป็นคนพากย์เสียง",
-    imgSrc: "Stuffs/img/video_presentation.gif",
+    imgSrc: "Stuffs/img/flowers.gif",
     choiceA: "เจ้าบ่าว",
     choiceB: "เจ้าสาว",
     choiceC: "เพื่อน",
@@ -216,12 +216,13 @@ function renderProgress() {
 // counter render
 
 function renderCounter() {
-  if (count <= questionTime) {
-    counter.innerHTML = count;
-    count++;
+  counter.innerHTML = count;
+  count++;
+  /* if (count <= questionTime) {
+ 
   } else {
     count = 0;
-    // change progress color to red
+    
     answerIsWrong();
     if (runningQuestion < lastQuestion) {
       runningQuestion++;
@@ -231,7 +232,7 @@ function renderCounter() {
       clearInterval(TIMER);
       scoreRender();
     }
-  }
+  } */
 }
 
 // checkAnwer
