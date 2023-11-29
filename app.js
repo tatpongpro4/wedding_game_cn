@@ -17,7 +17,7 @@ const yourtime = document.getElementById("yourtime");
 const game = document.getElementById("game");
 const name_block = document.getElementById("name");
 // create questions
-/* let questions = [
+let questions = [
   {
     question: "บ่าว-สาวเป็นเพื่อนในFackbookตั้งแต่ปีอะไร",
     imgSrc: "Stuffs/img/dog.gif",
@@ -108,8 +108,8 @@ const name_block = document.getElementById("name");
     choiceD: "จ้างนักพากย์",
     correct: "A",
   }
-] */
-
+]
+/* 
 let questions = [
   {
     question: "question",
@@ -147,7 +147,7 @@ let questions = [
     choiceD: "โคราช",
     correct: "C",
   },
-];
+]; */
 
 // Extra variables
 
@@ -366,14 +366,14 @@ function pad(val) {
 
 function saveData(data) {
   var database = firebase.database();
-  var ref = database.ref("test");
+  var ref = database.ref("prod");
 
   ref.push(data);
 }
 
 function checkIfUserPlayed(name, redirect, msg) {
   var database = firebase.database();
-  var ref = database.ref("test");
+  var ref = database.ref("prod");
 
   return new Promise((resolve, reject) => {
     ref

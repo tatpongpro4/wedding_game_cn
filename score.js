@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var playersData = [];
 
   var database = firebase.database();
-  var ref = database.ref("test");
+  var ref = database.ref("prod");
 
   ref.on("value", (snapshot) => {
     playersData = []; // Clear the previous data
