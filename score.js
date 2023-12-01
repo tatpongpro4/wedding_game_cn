@@ -47,7 +47,7 @@ function updateScoreTable(playersData) {
   var scoreTable = document.getElementById("scoreTable");
   scoreTable.innerHTML = ""; // ล้างตารางเก่า
 
-  for (var i = 0; i < Math.min(5, playersData.length); i++) {
+  for (var i = 0; i < Math.min(10, playersData.length); i++) {
     var player = playersData[i];
     var row = document.createElement("tr");
     row.innerHTML =
